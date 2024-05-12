@@ -1,0 +1,25 @@
+{
+  "name": "package-update-checker",
+  "version": "0.1",
+  "description": "A little application to check if package need update or not and send alert if update needed",
+  "main": "index.js",
+  "scripts": {
+    "start": "tsc src/index.ts --outDir dist  && node dist/index.js"
+  },
+  "keywords": [
+    "package",
+    "update",
+    "checker",
+    "npm",
+    "composer"
+  ],
+  "author": "Nirator",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^1.6.8"
+  },
+  "devDependencies": {
+    "@types/node": "^20.12.11",
+    "typescript": "^5.4.5"
+  }
+}
