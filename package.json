@@ -16,6 +16,7 @@
   "author": "Nirator",
   "license": "MIT",
   "dependencies": {
+    "ajv": "^8.13.0",
     "axios": "^1.6.8"
   },
   "devDependencies": {
