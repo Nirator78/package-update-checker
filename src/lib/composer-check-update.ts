@@ -9,6 +9,7 @@ export const composerCheckUpdate = async (composerJsonContent) => {
 
     for (const packageType of packageTypes) {
       const pkgs = composerJsonContent[packageType];
+      if(!pkgs) continue;
 
       for (const [package_, version] of Object.entries(pkgs)) {
           if (package_ === "php") {

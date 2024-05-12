@@ -9,6 +9,7 @@ export const npmCheckUpdate = async (packageJsonContent) => {
 
     for (const packageType of packageTypes) {
       const pkgs = packageJsonContent[packageType];
+      if(!pkgs) continue;
 
       for (const [package_, version] of Object.entries(pkgs)) {
             try {
