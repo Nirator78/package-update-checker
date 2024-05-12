@@ -1,24 +1,24 @@
 [
-  {
-    "name": "Test git public repository",
-    "type": "github",
-    "url": "",
-    "description": "This is a test repository",
-    "private": false,
-    "fileToCheck": [
-      {
-        "path": "package.json",
-        "type": "npm"
-      }
-    ],
-    "alerts": [
-      {
-        "type": "webhook",
-        "source": "slack",
-        "url": "",
-        "title": "Test git public repository",
-        "onlyIfUpdateNeeded": true
-      }
-    ]
-  }
-]
+	{
+	  "name": "Test git public repository",
+	  "type": "github",
+	  "url": "",
+	  "description": "This is a test repository",
+	  "private": false,
+	  "fileToCheck": [
+		{
+		  "path": "package.json",
+		  "type": "npm"
+		}
+	  ],
+	  "alerts": [
+		{
+		  "type": "webhook",
+		  "source": "slack",
+		  "url": "",
+		  "title": "Test git public repository",
+		  "onlyIfUpdateNeeded": true
+		}
+	  ]
+	}
+  ]
