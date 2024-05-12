@@ -1,7 +1,13 @@
 // Read config file
 const config = require('../config.json');
 
-// For each repository in the config file check the update
-config.forEach(repository => {
-  console.log(repository);  
-});
+// Validate config file
+import { verifyConfigFileService } from './services/verify-config-file.service';
+verifyConfigFileService(config);
+
+// For each repository do the work 💪💪💪
+for (const repository of config) {
+  // Get the files to check
+  // Check if the files are up to date
+  // Send alerts if needed
+}
