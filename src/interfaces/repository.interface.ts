@@ -1,15 +1,15 @@
-interface IFileToCheck {
+export interface IFileToCheck {
 	path: string;
 	type: string;
-  }
+}
   
-interface IAlert {
+export interface IAlert {
 	type: string;
 	source: string;
 	url: string;
 	title: string;
 	onlyIfUpdateNeeded: boolean;
-  }
+}
   
 export interface IRepository {
 	name: string;
@@ -19,4 +19,4 @@ export interface IRepository {
 	private: boolean;
 	fileToCheck: IFileToCheck[];
 	alerts: IAlert[];
-  }
+}
