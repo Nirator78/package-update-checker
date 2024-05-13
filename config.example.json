@@ -5,6 +5,7 @@
 	  "url": "",
 	  "description": "This is a test repository",
 	  "private": false,
+	  "auth": "",
 	  "fileToCheck": [
 		{
 		  "path": "package.json",

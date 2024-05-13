@@ -14,6 +14,7 @@ export const configFileSchema = {
       url: { type: "string" },
       description: { type: "string" },
       private: { type: "boolean" },
+      auth: { type: "string" },
       fileToCheck: {
         type: "array",
         items: {
