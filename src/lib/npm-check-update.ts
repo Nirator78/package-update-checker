@@ -1,9 +1,9 @@
 import axios from "axios";
 
-import { Package } from "../interfaces/package.interface"
+import { IPackage } from "../interfaces/package.interface"
 
 export const npmCheckUpdate = async (packageJsonContent) => {
-    const table: Package[] = [];
+    const table: IPackage[] = [];
 
     const packageTypes = ["dependencies", "devDependencies"];
 

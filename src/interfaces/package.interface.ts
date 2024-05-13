@@ -1,4 +1,4 @@
-export interface Package {
+export interface IPackage {
 	package: string,
 	version: string,
 	current: string,

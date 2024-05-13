@@ -1,9 +1,9 @@
 import axios from "axios";
 
-import { Package } from "../interfaces/package.interface"
+import { IPackage } from "../interfaces/package.interface"
 
 export const composerCheckUpdate = async (composerJsonContent) => {
-    const table: Package[] = [];
+    const table: IPackage[] = [];
 
     const packageTypes = ["require", "require-dev"];
 
