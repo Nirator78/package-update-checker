@@ -17,6 +17,7 @@ export interface IRepository {
 	url: string;
 	description: string;
 	private: boolean;
+	auth: string;
 	fileToCheck: IFileToCheck[];
 	alerts: IAlert[];
 }
