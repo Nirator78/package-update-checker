@@ -33,7 +33,7 @@ verifyConfigFileService(config);
 					continue;
 				}
 				// Send alert
-				await sendAlertService(repository, alert, update);
+				await sendAlertService(alert, update);
 			}
 		}
 	}
