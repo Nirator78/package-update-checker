@@ -1,6 +1,7 @@
 // Import utilities
 import { verifyConfigFileService } from './services/verify-config-file.service';
 import { getPackageFileService } from './services/get-package-file.service';
+import { sendAlertService } from './services/send-alert.service';
 import { npmCheckUpdate } from './lib/npm-check-update';
 import { composerCheckUpdate } from './lib/composer-check-update';
 // Import Enums
@@ -26,6 +27,14 @@ verifyConfigFileService(config);
 				update = await composerCheckUpdate(packageContent);
 			}
 			// Send alerts if needed
+			for (const alert of repository.alerts) {
+				// Send alert only if update is needed
+				if (alert.onlyIfUpdateNeeded && !update) {
+					continue;
+				}
+				// Send alert
+				await sendAlertService(alert, update);
+			}
 		}
 	}
 })();
