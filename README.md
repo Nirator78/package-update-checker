@@ -34,7 +34,7 @@ In progress...
 
 - It's my first open source project
 - I want to learn about open source and communauty tools
-- I already use this tool in my company in another unclean version 😂
+- I already use this tool in my project in another unclean version 😂
 
 ## License
 [MIT](LICENSE)
