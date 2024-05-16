@@ -29,6 +29,7 @@ In progress...
 
 ### Alert System
 - Slack
+- Discord
 
 ## Motivation
 
