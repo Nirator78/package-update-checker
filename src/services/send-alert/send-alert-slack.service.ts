@@ -24,7 +24,7 @@ export const sendAlertServiceToSlack = async (alert: IAlert, update: IPackage[])
                         "type": "header",
                         "text": {
                             "type": "plain_text",
-                            "text": alert.title
+                            "text": `${alert.title} - (${update.length} packages à mettre à jour)`,
                         }
                     },
                     ...result
