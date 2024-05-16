@@ -6,14 +6,14 @@ export const sendAlertServiceToDiscord = async (alert: IAlert, update: IPackage[
     let result: string = "";
 
     for(let up of update){
-        const newSection = `**${up.package}** n'est plus à jour : - Version actuelle : **${up.current}** - Dernière version : **${up.version}** \n`;
+        const newSection = `**${up.package}** is out of date : - Current version :**${up.current}** - Last version : **${up.version}**\n`;
         result = result.concat(newSection);
     }
 
     const body = {
         "embeds": [
           {
-            "title": alert.title,
+            "title": `${alert.title} - (${update.length} packages out of date)`,
             "description": result
           }
         ]

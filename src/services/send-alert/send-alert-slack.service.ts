@@ -10,7 +10,7 @@ export const sendAlertServiceToSlack = async (alert: IAlert, update: IPackage[])
             "type": "section",
             "text": {
                 "type": "mrkdwn",
-                "text": `*${up.package}* n'est plus à jour : - Version actuelle : ${up.current} - Dernière version : ${up.version}`
+                "text": `*${up.package}* is out of date : - Current version : ${up.current} - Last version : ${up.version}`
             }
         };
         result.push(newSection);
@@ -22,7 +22,7 @@ export const sendAlertServiceToSlack = async (alert: IAlert, update: IPackage[])
                 "type": "header",
                 "text": {
                     "type": "plain_text",
-                    "text": `${alert.title} - (${update.length} packages à mettre à jour)`,
+                    "text": `${alert.title} - (${update.length} packages out of date)`,
                 }
             },
             ...result
