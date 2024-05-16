@@ -17,23 +17,27 @@ verifyConfigFileService(config);
     // For each repository do the work 💪💪💪
 	for (const repository of config) {
 		for (const fileToCheck of repository.fileToCheck) {
-			// Get the files to check
-			const packageContent = await getPackageFileService(repository, fileToCheck);
-			// Check if the files are up to date
-			let update;
-			if (fileToCheck.type === PackageType.NPM) {
-				update = await npmCheckUpdate(packageContent);
-			} else {
-				update = await composerCheckUpdate(packageContent);
-			}
-			// Send alerts if needed
-			for (const alert of repository.alerts) {
-				// Send alert only if update is needed
-				if (alert.onlyIfUpdateNeeded && !update) {
-					continue;
+			try {
+				// Get the files to check
+				const packageContent = await getPackageFileService(repository, fileToCheck);
+				// Check if the files are up to date
+				let update;
+				if (fileToCheck.type === PackageType.NPM) {
+					update = await npmCheckUpdate(packageContent);
+				} else {
+					update = await composerCheckUpdate(packageContent);
 				}
-				// Send alert
-				await sendAlertService(alert, update);
+				// Send alerts if needed
+				for (const alert of repository.alerts) {
+					// Send alert only if update is needed
+					if (alert.onlyIfUpdateNeeded && !update) {
+						continue;
+					}
+					// Send alert
+					await sendAlertService(alert, update);
+				}
+			} catch (error) {
+				console.error(error);
 			}
 		}
 	}
