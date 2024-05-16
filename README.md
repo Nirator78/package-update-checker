@@ -19,7 +19,33 @@ A little application to check if package need update or not and send alert if up
 3. Run `docker-compose up -d`
 
 ## Configuration
-In progress...
+```json
+[
+	{
+		"name": "Test git public repository", // Name of the repository
+		"type": "github", // Type of repository (github, tortoisesvn)
+		"url": "", // URL of the repository
+		"description": "This is a test repository", // Description of the repository
+		"private": false, // Is the repository private
+		"auth": "", // Authentification for private repository
+		"fileToCheck": [
+			{
+				"path": "package.json", // Path of the file to check
+				"type": "npm" // Type of the file to check (npm, composer)
+			}
+		],
+		"alerts": [
+			{
+				"type": "webhook", // Type of alert (webhook)
+				"source": "slack", // Source of the alert (slack, discord)
+				"url": "", // URL of the webhook
+				"title": "Test git public repository", // Title of the alert
+				"onlyIfUpdateNeeded": true // Send alert only if update needed
+			}
+		]
+	}
+]
+```
 
 ## Compatibility
 
