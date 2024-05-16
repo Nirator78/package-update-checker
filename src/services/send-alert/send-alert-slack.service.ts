@@ -15,21 +15,23 @@ export const sendAlertServiceToSlack = async (alert: IAlert, update: IPackage[])
         };
         result.push(newSection);
     }
+
+    const body = {
+        "blocks": [
+            {
+                "type": "header",
+                "text": {
+                    "type": "plain_text",
+                    "text": `${alert.title} - (${update.length} packages à mettre à jour)`,
+                }
+            },
+            ...result
+        ]
+    };
     
     if(result.length != 0){
         await axios.post(alert.url, 
-            {
-                "blocks": [
-                    {
-                        "type": "header",
-                        "text": {
-                            "type": "plain_text",
-                            "text": `${alert.title} - (${update.length} packages à mettre à jour)`,
-                        }
-                    },
-                    ...result
-                ]
-            },
+            body,
             {
                 headers: {
                     'Content-Type': 'application/json; charset=utf-8'

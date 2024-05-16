@@ -9,17 +9,17 @@ export const sendAlertServiceToDiscord = async (alert: IAlert, update: IPackage[
         const newSection = `**${up.package}** n'est plus à jour : - Version actuelle : **${up.current}** - Dernière version : **${up.version}** \n`;
         result = result.concat(newSection);
     }
+
+    const body = {
+        "embeds": [
+          {
+            "title": alert.title,
+            "description": result
+          }
+        ]
+    };
     
     if(update.length != 0){
-        await axios.post(alert.url, 
-            {
-                "embeds": [
-                  {
-                    "title": alert.title,
-                    "description": result
-                  }
-                ]
-            }
-        );
+        await axios.post(alert.url, body);
     }    
 };
