@@ -6,12 +6,17 @@ import { sendAlertServiceToDiscord } from "./send-alert/send-alert-discord.servi
 
 export const sendAlertService = async (alert: IAlert, update: IPackage[]): Promise<any> => {
 	const { source } = alert;
-	switch (source) {
-		case AlertSource.SLACK:
-			return sendAlertServiceToSlack(alert, update);
-		case AlertSource.DISCORD:
-			return sendAlertServiceToDiscord(alert, update);
-		default:
-			throw new Error('Alert source not found');
+
+	try {
+		switch (source) {
+			case AlertSource.SLACK:
+				return sendAlertServiceToSlack(alert, update);
+			case AlertSource.DISCORD:
+				return sendAlertServiceToDiscord(alert, update);
+			default:
+				throw new Error('Alert source not found');
+		}
+	} catch (error) {
+		console.error(error);
 	}
 };
