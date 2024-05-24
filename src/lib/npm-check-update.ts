@@ -1,4 +1,5 @@
 import axios from "axios";
+import * as semver from "semver";
 
 import { IPackage } from "../interfaces/package.interface"
 
@@ -21,9 +22,9 @@ export const npmCheckUpdate = async (packageJsonContent): Promise<IPackage[]> =>
 
               const body = response.data;
 
-              const lastestVersion = body["dist-tags"].latest.replace(/[^0-9.]/g, '');
+              const lastestVersion = body["dist-tags"].latest;
               
-              if(lastestVersion !== version)
+              if(semver.lt(version, lastestVersion))
                 table.push({
                   package: package_,
                   version: lastestVersion,

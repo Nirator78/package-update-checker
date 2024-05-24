@@ -1,4 +1,5 @@
 import axios from "axios";
+import * as semver from "semver";
 
 import { IPackage } from "../interfaces/package.interface"
 
@@ -27,13 +28,14 @@ export const composerCheckUpdate = async (composerJsonContent): Promise<IPackage
               throw new Error("Bad response from server");
             }
 
-            const body = response.data.packages[package_][0];
-            
-            if(body.version.replace(/[^0-9.]/g, '') !== (version as string).replace(/[^0-9.]/g, ''))
+			const body = response.data.packages[package_][0];
+			const lastestVersion = body.version;
+			
+            if(semver.lt(version, lastestVersion))
               table.push({
                 package: package_,
-                version: body.version.replace(/[^0-9.]/g, ''),
-                current: (version as string).replace(/[^0-9.]/g, ''),
+                version: lastestVersion,
+                current: version as string,
                 url: `https://packagist.org/packages/${package_}`
               })
           } catch(e) {
