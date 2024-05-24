@@ -10,7 +10,7 @@ export const sendAlertServiceToSlack = async (alert: IAlert, update: IPackage[])
             "type": "section",
             "text": {
                 "type": "mrkdwn",
-                "text": `*${up.package}* is out of date : - Current version : ${up.current} - Last version : ${up.version}`
+                "text": `*${up.package}* is out of date (${up.releaseType}): - Current version : ${up.current} - Last version : ${up.version}`
             }
         };
         result.push(newSection);
