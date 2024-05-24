@@ -1,5 +1,5 @@
 import axios from "axios";
-import * as semver from "semver";
+import * as semverLt from "semver/functions/lt";
 
 import { IPackage } from "../interfaces/package.interface"
 
@@ -31,7 +31,7 @@ export const composerCheckUpdate = async (composerJsonContent): Promise<IPackage
 			const body = response.data.packages[packageName][0];
 			const lastestVersion = body.version;
 
-            if(semver.lt(version, lastestVersion))
+            if(semverLt(version, lastestVersion))
               table.push({
                 package: packageName,
                 version: lastestVersion,
