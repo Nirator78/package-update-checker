@@ -34,7 +34,7 @@ export const sendAlertServiceToSlack = async (alert: IAlert, update: IPackage[])
             body,
             {
                 headers: {
-                    'Content-Type': 'application/json; charset=utf-8'
+                    "Content-Type": "application/json; charset=utf-8"
                 }
             }
         );
