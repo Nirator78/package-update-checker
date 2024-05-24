@@ -7,6 +7,7 @@ import { composerCheckUpdate } from './lib/composer-check-update';
 // Import Enums
 import { PackageType } from './enums/package-type.enum';
 import { IRepository } from './interfaces/repository.interface';
+import { ReleaseTypeOrder } from './enums/release-type.enum';
 // Read config file
 const config: IRepository[] = require('../config.json');
 
@@ -27,6 +28,8 @@ verifyConfigFileService(config);
 				} else {
 					update = await composerCheckUpdate(packageContent);
 				}
+				// Order by release type using the ReleaseTypeOrder
+				update.sort((a, b) => ReleaseTypeOrder[a.releaseType] - ReleaseTypeOrder[b.releaseType]);
 				// Send alerts if needed
 				for (const alert of repository.alerts) {
 					// Send alert only if update is needed
