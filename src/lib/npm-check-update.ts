@@ -12,9 +12,9 @@ export const npmCheckUpdate = async (packageJsonContent): Promise<IPackage[]> =>
       const pkgs = packageJsonContent[packageType];
       if(!pkgs) continue;
 
-      for (const [package_, version] of Object.entries(pkgs)) {
+      for (const [packageName, version] of Object.entries(pkgs)) {
             try {
-              const response = await axios.get(`https://registry.npmjs.org/${package_}`);
+              const response = await axios.get(`https://registry.npmjs.org/${packageName}`);
 
               if (response.status >= 400) {
                 throw new Error("Bad response from server");
@@ -26,21 +26,21 @@ export const npmCheckUpdate = async (packageJsonContent): Promise<IPackage[]> =>
               
               if(semver.lt(version, lastestVersion))
                 table.push({
-                  package: package_,
+                  package: packageName,
                   version: lastestVersion,
                   current: version as string,
-                  url: `https://www.npmjs.com/package/${package_}`
+                  url: `https://www.npmjs.com/package/${packageName}`
                 })
             } catch(e) {
               console.log(
-                `Skipped ${package_} because it encountered an error`,
+                `Skipped ${packageName} because it encountered an error`,
               );
               console.log(e)
               table.push({
-                package: package_,
+                package: packageName,
                 version: "Error",
                 current: version as string,
-                url: `https://www.npmjs.com/package/${package_}`
+                url: `https://www.npmjs.com/package/${packageName}`
               })
             }
       	}

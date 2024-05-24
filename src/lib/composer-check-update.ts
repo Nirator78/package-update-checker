@@ -12,42 +12,42 @@ export const composerCheckUpdate = async (composerJsonContent): Promise<IPackage
       const pkgs = composerJsonContent[packageType];
       if(!pkgs) continue;
 
-      for (const [package_, version] of Object.entries(pkgs)) {
-          if (package_ === "php") {
+      for (const [packageName, version] of Object.entries(pkgs)) {
+          if (packageName === "php") {
             continue;
           }
 
-          if (package_.startsWith("ext-")) {
+          if (packageName.startsWith("ext-")) {
             continue;
           }
 
           try {
-            const response = await axios.get(`https://repo.packagist.org/p2/${package_}.json`);
+            const response = await axios.get(`https://repo.packagist.org/p2/${packageName}.json`);
 
             if (response.status >= 400) {
               throw new Error("Bad response from server");
             }
 
-			const body = response.data.packages[package_][0];
+			const body = response.data.packages[packageName][0];
 			const lastestVersion = body.version;
-			
+
             if(semver.lt(version, lastestVersion))
               table.push({
-                package: package_,
+                package: packageName,
                 version: lastestVersion,
                 current: version as string,
-                url: `https://packagist.org/packages/${package_}`
+                url: `https://packagist.org/packages/${packageName}`
               })
           } catch(e) {
             console.log(
-              `Skipped ${package_} because it encountered an error`,
+              `Skipped ${packageName} because it encountered an error`,
             );
             console.log(e)
             table.push({
-              package: package_,
+              package: packageName,
               version: "Error",
               current: version as string,
-              url: `https://packagist.org/packages/${package_}`
+              url: `https://packagist.org/packages/${packageName}`
             })
           }
       }
