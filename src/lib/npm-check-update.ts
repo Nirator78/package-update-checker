@@ -1,7 +1,9 @@
 import axios from "axios";
 import * as semverLt from "semver/functions/lt";
+import * as semverDiff from "semver/functions/diff";
 
-import { IPackage } from "../interfaces/package.interface"
+import { IPackage } from "../interfaces/package.interface";
+import { ReleaseType } from "../enums/release-type.enum";
 
 export const npmCheckUpdate = async (packageJsonContent): Promise<IPackage[]> => {
     const table: IPackage[] = [];
@@ -29,7 +31,8 @@ export const npmCheckUpdate = async (packageJsonContent): Promise<IPackage[]> =>
                   package: packageName,
                   version: lastestVersion,
                   current: version as string,
-                  url: `https://www.npmjs.com/package/${packageName}`
+                  url: `https://www.npmjs.com/package/${packageName}`,
+				  releaseType: semverDiff(version, lastestVersion)
                 })
             } catch(e) {
               console.log(
@@ -40,7 +43,8 @@ export const npmCheckUpdate = async (packageJsonContent): Promise<IPackage[]> =>
                 package: packageName,
                 version: "Error",
                 current: version as string,
-                url: `https://www.npmjs.com/package/${packageName}`
+                url: `https://www.npmjs.com/package/${packageName}`,
+				releaseType: ReleaseType.ERROR
               })
             }
       	}
