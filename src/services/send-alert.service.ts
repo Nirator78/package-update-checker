@@ -3,6 +3,7 @@ import { IPackage } from "../interfaces/package.interface";
 import { IAlert } from "../interfaces/repository.interface";
 import { sendAlertServiceToSlack } from "./send-alert/send-alert-slack.service";
 import { sendAlertServiceToDiscord } from "./send-alert/send-alert-discord.service";
+import { sendAlertCustomService } from "./send-alert/send-alert-custom.service";
 
 export const sendAlertService = async (alert: IAlert, update: IPackage[]): Promise<any> => {
 	const { source } = alert;
@@ -13,6 +14,8 @@ export const sendAlertService = async (alert: IAlert, update: IPackage[]): Promi
 				return sendAlertServiceToSlack(alert, update);
 			case AlertSource.DISCORD:
 				return sendAlertServiceToDiscord(alert, update);
+			case AlertSource.CUSTOM:
+				return sendAlertCustomService(alert, update);
 			default:
 				throw new Error('Alert source not found');
 		}
