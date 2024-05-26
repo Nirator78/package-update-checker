@@ -11,6 +11,6 @@ export const getPackageFileService = async (repository: IRepository, fileToCheck
 		case RepositoryType.TORTOISESVN:
 			return getPackageFromTortoiseSvnService(repository, fileToCheck);
 		default:
-			throw new Error('Repository type not supported');
+			throw new Error("Repository type not supported");
 	}
 };

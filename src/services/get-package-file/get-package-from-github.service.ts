@@ -9,7 +9,7 @@ export const getPackageFromGithubService = async (repository: IRepository, fileT
 		const response = await axios.get(url);
 		return response.data;
 	} else {
-		let rawGithub = repository.url.replace("github.com", "raw.githubusercontent.com") + "/main";
+		const rawGithub = repository.url.replace("github.com", "raw.githubusercontent.com") + "/main";
 		const url = `${rawGithub}/${fileToCheck.path}`;
 		const response = await axios.get(url);
 		return response.data;

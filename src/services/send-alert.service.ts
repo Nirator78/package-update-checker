@@ -17,7 +17,7 @@ export const sendAlertService = async (alert: IAlert, update: IPackage[]): Promi
 			case AlertSource.CUSTOM:
 				return sendAlertCustomService(alert, update);
 			default:
-				throw new Error('Alert source not found');
+				throw new Error("Alert source not found");
 		}
 	} catch (error) {
 		console.error(error);
