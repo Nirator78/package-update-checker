@@ -4,7 +4,7 @@ import { IFileToCheck, IRepository } from "../../interfaces/repository.interface
 
 const httpsAgent = new https.Agent({ rejectUnauthorized: false });
 
-let config = {
+const config = {
   method: "get",
   maxBodyLength: Infinity,
   httpsAgent,
