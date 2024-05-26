@@ -35,17 +35,14 @@ export const npmCheckUpdate = async (packageJsonContent): Promise<IPackage[]> =>
 				  releaseType: semverDiff(version, lastestVersion)
                 })
             } catch(e) {
-              console.log(
-                `Skipped ${packageName} because it encountered an error`,
-              );
-              console.log(e)
-              table.push({
-                package: packageName,
-                version: "Error",
-                current: version as string,
-                url: `https://www.npmjs.com/package/${packageName}`,
-				releaseType: ReleaseType.ERROR
-              })
+				console.error(e);
+              	table.push({
+                	package: packageName,
+                	version: "Error",
+                	current: version as string,
+                	url: `https://www.npmjs.com/package/${packageName}`,
+					releaseType: ReleaseType.ERROR
+              	})
             }
       	}
     }

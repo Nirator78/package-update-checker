@@ -42,16 +42,13 @@ export const composerCheckUpdate = async (composerJsonContent): Promise<IPackage
 				releaseType: semverDiff(version, lastestVersion)
               })
           } catch(e) {
-            console.log(
-              `Skipped ${packageName} because it encountered an error`,
-            );
-            console.log(e)
+			console.error(e);
             table.push({
-              package: packageName,
-              version: "Error",
-              current: version as string,
-              url: `https://packagist.org/packages/${packageName}`,
-			  releaseType: ReleaseType.ERROR
+              	package: packageName,
+              	version: "Error",
+              	current: version as string,
+              	url: `https://packagist.org/packages/${packageName}`,
+			  	releaseType: ReleaseType.ERROR
             })
           }
       }
