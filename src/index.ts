@@ -1,15 +1,15 @@
 // Import utilities
-import { verifyConfigFileService } from './services/verify-config-file.service';
-import { getPackageFileService } from './services/get-package-file.service';
-import { sendAlertService } from './services/send-alert.service';
-import { npmCheckUpdate } from './lib/npm-check-update';
-import { composerCheckUpdate } from './lib/composer-check-update';
+import { verifyConfigFileService } from "./services/verify-config-file.service";
+import { getPackageFileService } from "./services/get-package-file.service";
+import { sendAlertService } from "./services/send-alert.service";
+import { npmCheckUpdate } from "./lib/npm-check-update";
+import { composerCheckUpdate } from "./lib/composer-check-update";
 // Import Enums
-import { PackageType } from './enums/package-type.enum';
-import { IRepository } from './interfaces/repository.interface';
-import { ReleaseTypeOrder } from './enums/release-type.enum';
+import { PackageType } from "./enums/package-type.enum";
+import { IRepository } from "./interfaces/repository.interface";
+import { ReleaseTypeOrder } from "./enums/release-type.enum";
 // Read config file
-import * as config from '../config.json';
+import * as config from "../config.json";
 
 // Validate config file
 verifyConfigFileService(config);
