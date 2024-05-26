@@ -9,14 +9,14 @@ import { PackageType } from './enums/package-type.enum';
 import { IRepository } from './interfaces/repository.interface';
 import { ReleaseTypeOrder } from './enums/release-type.enum';
 // Read config file
-const config: IRepository[] = require('../config.json');
+import * as config from '../config.json';
 
 // Validate config file
 verifyConfigFileService(config);
 
 (async () => {
     // For each repository do the work 💪💪💪
-	for (const repository of config) {
+	for (const repository of (config as IRepository[])) {
 		for (const fileToCheck of repository.fileToCheck) {
 			try {
 				// Get the files to check
