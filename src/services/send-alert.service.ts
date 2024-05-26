@@ -5,7 +5,7 @@ import { sendAlertServiceToSlack } from "./send-alert/send-alert-slack.service";
 import { sendAlertServiceToDiscord } from "./send-alert/send-alert-discord.service";
 import { sendAlertCustomService } from "./send-alert/send-alert-custom.service";
 
-export const sendAlertService = async (alert: IAlert, update: IPackage[]): Promise<any> => {
+export const sendAlertService = async (alert: IAlert, update: IPackage[]): Promise<void> => {
 	const { source } = alert;
 
 	try {
