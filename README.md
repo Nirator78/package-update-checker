@@ -56,6 +56,7 @@ A little application to check if package need update or not and send alert if up
 ### Alert System
 - Slack
 - Discord
+- Custom Webhooks
 
 ## Motivation
 
