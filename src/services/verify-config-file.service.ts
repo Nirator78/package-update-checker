@@ -8,7 +8,6 @@ export const verifyConfigFileService = async (configContent: any) => {
 	const validate = ajv.compile(configFileSchema)
 	// Validate the schema
 	if (!validate(configContent)) {
-		console.error(validate.errors)
-		throw new Error("Config file has the wrong schema")
+		throw new Error("Config file has the wrong schema : " + JSON.stringify(validate.errors))
 	}
 };
