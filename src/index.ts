@@ -2,10 +2,8 @@
 import { verifyConfigFileService } from "./services/verify-config-file.service";
 import { getPackageFileService } from "./services/get-package-file.service";
 import { sendAlertService } from "./services/send-alert.service";
-import { npmCheckUpdate } from "./lib/npm-check-update";
-import { composerCheckUpdate } from "./lib/composer-check-update";
+import { checkUpdateService } from "./services/check-update.service";
 // Import Enums
-import { PackageType } from "./enums/package-type.enum";
 import { IRepository } from "./interfaces/repository.interface";
 import { ReleaseTypeOrder } from "./enums/release-type.enum";
 // Read config file
@@ -22,12 +20,7 @@ verifyConfigFileService(config);
 				// Get the files to check
 				const packageContent = await getPackageFileService(repository, fileToCheck);
 				// Check if the files are up to date
-				let update;
-				if (fileToCheck.type === PackageType.NPM) {
-					update = await npmCheckUpdate(packageContent);
-				} else {
-					update = await composerCheckUpdate(packageContent);
-				}
+				const update = await checkUpdateService(fileToCheck.type, packageContent);
 				// Order by release type using the ReleaseTypeOrder
 				update.sort((a, b) => ReleaseTypeOrder[a.releaseType] - ReleaseTypeOrder[b.releaseType]);
 				// Send alerts if needed
