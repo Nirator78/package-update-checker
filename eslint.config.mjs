@@ -8,6 +8,7 @@ export default [
 			globals: globals.browser 
 		},
 		rules: {
+			"quotes": ["error", "double"],
 			"no-console": "warn",
             "no-unused-vars": "warn",
 			"@typescript-eslint/no-explicit-any": "warn",
