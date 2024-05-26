@@ -4,7 +4,8 @@
   "description": "A little application to check if package need update or not and send alert if update needed",
   "main": "src/index.ts",
   "scripts": {
-    "start": "ts-node src/index.ts"
+    "start": "ts-node src/index.ts",
+    "lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix"
   },
   "keywords": [
     "package",
@@ -23,6 +24,9 @@
   },
   "devDependencies": {
     "@types/node": "^20.12.11",
-    "typescript": "^5.4.5"
+    "eslint": "^9.3.0",
+    "globals": "^15.3.0",
+    "typescript": "^5.4.5",
+    "typescript-eslint": "^7.10.0"
   }
 }
