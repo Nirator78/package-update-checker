@@ -14,7 +14,7 @@ export const composerCheckUpdate = async (composerJsonContent): Promise<IPackage
       const pkgs = composerJsonContent[packageType];
       if(!pkgs) continue;
 
-      for (const [packageName, version] of Object.entries(pkgs)) {
+      for (let [packageName, version] of Object.entries(pkgs)) {
           if (packageName === "php") {
             continue;
           }
@@ -32,6 +32,7 @@ export const composerCheckUpdate = async (composerJsonContent): Promise<IPackage
 
 			const body = response.data.packages[packageName][0];
 			const lastestVersion = body.version;
+			version = (version as string).replace(/[^0-9.]/g, "");
 
             if(semverLt(version, lastestVersion))
               table.push({

@@ -11,39 +11,39 @@ export const npmCheckUpdate = async (packageJsonContent): Promise<IPackage[]> =>
     const packageTypes = ["dependencies", "devDependencies"];
 
     for (const packageType of packageTypes) {
-      const pkgs = packageJsonContent[packageType];
-      if(!pkgs) continue;
+		const pkgs = packageJsonContent[packageType];
+		if(!pkgs) continue;
 
-      for (const [packageName, version] of Object.entries(pkgs)) {
-            try {
-              const response = await axios.get(`https://registry.npmjs.org/${packageName}`);
+		for (let [packageName, version] of Object.entries(pkgs)) {
+			try {
+				const response = await axios.get(`https://registry.npmjs.org/${packageName}`);
 
-              if (response.status >= 400) {
-                throw new Error("Bad response from server");
-              }
+				if (response.status >= 400) {
+					throw new Error("Bad response from server");
+				}
 
-              const body = response.data;
+				const body = response.data;
 
-              const lastestVersion = body["dist-tags"].latest;
-              
-              if(semverLt(version, lastestVersion))
-                table.push({
-                  package: packageName,
-                  version: lastestVersion,
-                  current: version as string,
-                  url: `https://www.npmjs.com/package/${packageName}`,
-				  releaseType: semverDiff(version, lastestVersion)
-                })
-            } catch(e) {
+				const lastestVersion = body["dist-tags"].latest;
+				version = (version as string).replace(/[^0-9.]/g, "");
+				if(semverLt(version, lastestVersion))
+					table.push({
+						package: packageName,
+						version: lastestVersion,
+						current: version as string,
+						url: `https://www.npmjs.com/package/${packageName}`,
+						releaseType: semverDiff(version, lastestVersion)
+					})
+			} catch(e) {
 				console.error(e);
-              	table.push({
-                	package: packageName,
-                	version: "Error",
-                	current: version as string,
-                	url: `https://www.npmjs.com/package/${packageName}`,
+				table.push({
+					package: packageName,
+					version: "Error",
+					current: version as string,
+					url: `https://www.npmjs.com/package/${packageName}`,
 					releaseType: ReleaseType.ERROR
-              	})
-            }
+				})
+			}
       	}
     }
 
