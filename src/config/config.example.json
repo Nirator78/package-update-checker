@@ -1,15 +1,19 @@
 [
 	{
-		"name": "Test git public repository",
+		"name": "Test git public awesome repository",
 		"type": "github",
-		"url": "",
-		"description": "This is a test repository",
+		"url": "https://github.com/Nirator78/package-update-checker",
+		"description": "This is the description of the git public awesome repository",
 		"private": false,
 		"auth": "",
 		"fileToCheck": [
 			{
-				"path": "package.json",
+				"path": "./examples/package.json",
 				"type": "npm"
+			},
+			{
+				"path": "./examples/composer.json",
+				"type": "composer"
 			}
 		],
 		"alerts": [
