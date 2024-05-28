@@ -1,6 +1,6 @@
 import axios from "axios";
-import * as semverLt from "semver/functions/lt";
-import * as semverDiff from "semver/functions/diff";
+import semverLt from "semver/functions/lt";
+import semverDiff from "semver/functions/diff";
 
 import { IPackage } from "../interfaces/package.interface";
 import { ReleaseType } from "../enums/release-type.enum";

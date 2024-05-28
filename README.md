@@ -4,18 +4,18 @@ A little application to check if package need update or not and send alert if up
 ## 💪🏻 Installation (Manual)
 1. Clone this repository
 2. Run `npm install`
-3. Copy `config.example.json` to `config.json` and fill the configuration
+3. Copy `src/config/config.example.json` to `src/config/config.json` and fill the configuration
 4. Run `npm start`
 
 ## 🐳 Installation (Docker)
 1. Clone this repository
-2. Copy `config.example.json` to `config.json` and fill the configuration
+2. Copy `src/config/config.example.json` to `src/config/config.json` and fill the configuration
 3. Run `docker build -t package-update-checker .`
 4. Run `docker run package-update-checker`
 
 ## 🐳 Installation (Docker Compose)
 1. Clone this repository
-2. Copy `config.example.json` to `config.json` and fill the configuration
+2. Copy `src/config/config.example.json` to `src/config/config.json` and fill the configuration
 3. Run `docker-compose up -d`
 
 ## Configuration

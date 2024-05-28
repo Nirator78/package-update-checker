@@ -1,13 +1,13 @@
 // Import utilities
-import { verifyConfigFileService } from "./services/verify-config-file.service";
-import { getPackageFileService } from "./services/get-package-file.service";
-import { sendAlertService } from "./services/send-alert.service";
-import { checkUpdateService } from "./services/check-update.service";
+import { verifyConfigFileService } from "@/services/verify-config-file.service";
+import { getPackageFileService } from "@/services/get-package-file.service";
+import { sendAlertService } from "@/services/send-alert.service";
+import { checkUpdateService } from "@/services/check-update.service";
 // Import Enums
-import { IRepository } from "./interfaces/repository.interface";
-import { ReleaseTypeOrder } from "./enums/release-type.enum";
+import { IRepository } from "@/interfaces/repository.interface";
+import { ReleaseTypeOrder } from "@/enums/release-type.enum";
 // Read config file
-import * as config from "../config.json";
+import config from "@/config/config.json";
 
 // Validate config file
 verifyConfigFileService(config);
