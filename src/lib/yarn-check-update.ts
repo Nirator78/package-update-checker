@@ -1,6 +1,7 @@
 import axios from "axios";
 import semverLt from "semver/functions/lt";
 import semverDiff from "semver/functions/diff";
+import semberCoerce from "semver/functions/coerce";
 
 import { IPackage } from "../interfaces/package.interface";
 import { ReleaseType } from "../enums/release-type.enum";
@@ -26,6 +27,8 @@ export const yarnCheckUpdate = async (packageJsonContent): Promise<IPackage[]> =
 
 				const lastestVersion = body["dist-tags"].latest;
 				version = (version as string).replace(/[^0-9.]/g, "");
+				version = semberCoerce(version).version;
+
 				if(semverLt(version, lastestVersion))
 					table.push({
 						package: packageName,
