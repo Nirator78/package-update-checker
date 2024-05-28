@@ -31,13 +31,13 @@ A little application to check if package need update or not and send alert if up
 		"fileToCheck": [
 			{
 				"path": "package.json", // Path of the file to check
-				"type": "npm" // Type of the file to check (npm, composer)
+				"type": "npm" // Type of the file to check (npm, composer, yarn)
 			}
 		],
 		"alerts": [
 			{
 				"type": "webhook", // Type of alert (webhook)
-				"source": "slack", // Source of the alert (slack, discord)
+				"source": "slack", // Source of the alert (slack, discord, custom)
 				"url": "", // URL of the webhook
 				"title": "Test git public repository", // Title of the alert
 				"onlyIfUpdateNeeded": true // Send alert only if update needed
