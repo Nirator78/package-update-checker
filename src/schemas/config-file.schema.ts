@@ -1,7 +1,7 @@
-import { RepositoryType } from "../enums/repository-type.enum";
-import { PackageType } from "../enums/package-type.enum";
-import { AlertType } from "../enums/alert-type.enum";
-import { AlertSource } from "../enums/alert-source.enum";
+import { RepositoryType } from "@/enums/repository-type.enum";
+import { PackageType } from "@/enums/package-type.enum";
+import { AlertType } from "@/enums/alert-type.enum";
+import { AlertSource } from "@/enums/alert-source.enum";
 
 export const configFileSchema = {
   type: "array",

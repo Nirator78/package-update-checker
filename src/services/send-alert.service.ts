@@ -1,9 +1,9 @@
-import { AlertSource } from "../enums/alert-source.enum";
-import { IPackage } from "../interfaces/package.interface";
-import { IAlert } from "../interfaces/repository.interface";
-import { sendAlertServiceToSlack } from "./send-alert/send-alert-slack.service";
-import { sendAlertServiceToDiscord } from "./send-alert/send-alert-discord.service";
-import { sendAlertCustomService } from "./send-alert/send-alert-custom.service";
+import { AlertSource } from "@/enums/alert-source.enum";
+import { IPackage } from "@/interfaces/package.interface";
+import { IAlert } from "@/interfaces/repository.interface";
+import { sendAlertServiceToSlack } from "@/services/send-alert/send-alert-slack.service";
+import { sendAlertServiceToDiscord } from "@/services/send-alert/send-alert-discord.service";
+import { sendAlertCustomService } from "@/services/send-alert/send-alert-custom.service";
 
 export const sendAlertService = async (alert: IAlert, update: IPackage[]): Promise<void> => {
 	const { source } = alert;

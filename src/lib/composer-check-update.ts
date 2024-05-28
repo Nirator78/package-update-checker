@@ -3,8 +3,8 @@ import semverLt from "semver/functions/lt";
 import semverDiff from "semver/functions/diff";
 import semberCoerce from "semver/functions/coerce";
 
-import { IPackage } from "../interfaces/package.interface";
-import { ReleaseType } from "../enums/release-type.enum";
+import { IPackage } from "@/interfaces/package.interface";
+import { ReleaseType } from "@/enums/release-type.enum";
 
 export const composerCheckUpdate = async (composerJsonContent): Promise<IPackage[]> => {
     const table: IPackage[] = [];

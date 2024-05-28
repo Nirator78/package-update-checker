@@ -1,5 +1,5 @@
 import axios from "axios";
-import { IFileToCheck, IRepository } from "../../interfaces/repository.interface";
+import { IFileToCheck, IRepository } from "@/interfaces/repository.interface";
 
 export const getPackageFromGithubService = async (repository: IRepository, fileToCheck: IFileToCheck): Promise<any> => {
 	if(repository.private) {

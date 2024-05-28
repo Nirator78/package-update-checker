@@ -1,6 +1,6 @@
 import axios from "axios";
 import * as https from "https";
-import { IFileToCheck, IRepository } from "../../interfaces/repository.interface";
+import { IFileToCheck, IRepository } from "@/interfaces/repository.interface";
 
 const httpsAgent = new https.Agent({ rejectUnauthorized: false });
 

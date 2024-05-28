@@ -1,5 +1,5 @@
 import Ajv from "ajv"
-import { configFileSchema } from "../schemas/config-file.schema"
+import { configFileSchema } from "@/schemas/config-file.schema"
 
 export const verifyConfigFileService = async (configContent: any) => {
 	// Verify if config file has the correct schema
