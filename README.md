@@ -1,4 +1,4 @@
-# Package Update Checker (Npm, Composer)
+# Package Update Checker (Npm, Composer, Yarn)
 A little application to check if package need update or not and send alert if update needed
 
 ## 💪🏻 Installation (Manual)
