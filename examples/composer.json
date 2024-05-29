@@ -21,7 +21,7 @@
         "symfony/framework-bundle": "^7.0",
         "symfony/html-sanitizer": "^7.0",
         "symfony/http-client": "^7.0",
-		"spryker/sales-aggregator": "5.0.1",
+		"spryker/sales-aggregator": "5.0.0",
         "twig/extra-bundle": "^3.3",
         "twig/intl-extra": "^3.3",
         "twig/markdown-extra": "^3.3"
