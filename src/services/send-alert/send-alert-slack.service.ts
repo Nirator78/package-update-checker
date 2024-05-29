@@ -6,11 +6,12 @@ export const sendAlertServiceToSlack = async (alert: IAlert, update: IPackage[])
     const result: any = [];
 
     for(const up of update){
+		const deprecatedMessage = up.deprecated ? "[DEPRECATED] " : "";
         const newSection = {
             "type": "section",
             "text": {
                 "type": "mrkdwn",
-                "text": `*${up.package}* is out of date (${up.releaseType}): - Current version : ${up.current} - Last version : ${up.version}`
+                "text": `${deprecatedMessage}*${up.package}* is out of date (${up.releaseType}): - Current version : ${up.current} - Last version : ${up.version}`
             }
         };
         result.push(newSection);

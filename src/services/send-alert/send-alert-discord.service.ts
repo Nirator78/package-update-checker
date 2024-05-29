@@ -6,7 +6,8 @@ export const sendAlertServiceToDiscord = async (alert: IAlert, update: IPackage[
     let result: string = "";
 
     for(const up of update){
-        const newSection = `**${up.package}** is out of date (${up.releaseType}): - Current version : **${up.current}** - Last version : **${up.version}**\n`;
+		const deprecatedMessage = up.deprecated ? "[DEPRECATED] " : "";
+        const newSection = `${deprecatedMessage}**${up.package}** is out of date (${up.releaseType}): - Current version : **${up.current}** - Last version : **${up.version}**\n`;
         result = result.concat(newSection);
     }
 

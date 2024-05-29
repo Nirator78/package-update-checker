@@ -36,13 +36,16 @@ export const composerCheckUpdate = async (composerJsonContent): Promise<IPackage
 				version = (version as string).replace(/[^0-9.]/g, "");
 				version = semberCoerce(version).version;
 
+				const deprecated = body.abandoned;
+
 				if(semverLt(version, lastestVersion))
 				table.push({
 					package: packageName,
 					version: lastestVersion,
 					current: version as string,
 					url: `https://packagist.org/packages/${packageName}`,
-					releaseType: semverDiff(version, lastestVersion)
+					releaseType: semverDiff(version, lastestVersion),
+					deprecated
 				})
 			} catch(e) {
 				console.error(e);
@@ -51,7 +54,8 @@ export const composerCheckUpdate = async (composerJsonContent): Promise<IPackage
 					version: "Error",
 					current: version as string,
 					url: `https://packagist.org/packages/${packageName}`,
-					releaseType: ReleaseType.ERROR
+					releaseType: ReleaseType.ERROR,
+					deprecated: false
 				})
 			}
 		}

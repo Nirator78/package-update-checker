@@ -3,5 +3,6 @@ export interface IPackage {
 	version: string,
 	current: string,
 	url: string,
-	releaseType: string
+	releaseType: string,
+	deprecated: boolean
 }
