@@ -59,7 +59,7 @@ A little application to check if package need update or not and send alert if up
 - Discord
 - Custom Webhooks
 
-### Todo List
+## Todo List
 
 - [See Github Project](https://github.com/users/Nirator78/projects/4/views/1)
 
