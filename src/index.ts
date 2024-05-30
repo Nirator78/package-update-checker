@@ -20,7 +20,7 @@ verifyConfigFileService(config);
 				// Get the files to check
 				const packageContent = await getPackageFileService(repository, fileToCheck);
 				// Check if the files are up to date
-				const update = await checkUpdateService(fileToCheck.type, packageContent);
+				const update = await checkUpdateService(fileToCheck, packageContent);
 				// Order by release type using the ReleaseTypeOrder
 				update.sort((a, b) => ReleaseTypeOrder[a.releaseType] - ReleaseTypeOrder[b.releaseType]);
 				// Send alerts if needed

@@ -1,10 +1,11 @@
+import { IFileToCheck } from "@/interfaces/repository.interface";
 import { PackageType } from "@/enums/package-type.enum";
 import { npmCheckUpdate } from "@/lib/npm-check-update";
 import { yarnCheckUpdate } from "@/lib/yarn-check-update";
 import { composerCheckUpdate } from "@/lib/composer-check-update";
 
-export const checkUpdateService = async (typeFileToCheck: string, packageContent: any): Promise<any> => {
-	switch (typeFileToCheck) {
+export const checkUpdateService = async (fileToCheck: IFileToCheck, packageContent: any): Promise<any> => {
+	switch (fileToCheck.type) {
 		case PackageType.NPM:
 			return await npmCheckUpdate(packageContent);
 		case PackageType.YARN:
