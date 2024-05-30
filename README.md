@@ -31,7 +31,8 @@ A little application to check if package need update or not and send alert if up
 		"fileToCheck": [
 			{
 				"path": "package.json", // Path of the file to check
-				"type": "npm" // Type of the file to check (npm, composer, yarn)
+				"type": "npm", // Type of the file to check (npm, composer, yarn)
+				"ignorePackages": ["packageName"] // List of packages to ignore (Optional)
 			}
 		],
 		"alerts": [

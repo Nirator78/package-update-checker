@@ -7,11 +7,11 @@ import { composerCheckUpdate } from "@/lib/composer-check-update";
 export const checkUpdateService = async (fileToCheck: IFileToCheck, packageContent: any): Promise<any> => {
 	switch (fileToCheck.type) {
 		case PackageType.NPM:
-			return await npmCheckUpdate(packageContent);
+			return await npmCheckUpdate(fileToCheck, packageContent);
 		case PackageType.YARN:
-			return await yarnCheckUpdate(packageContent);
+			return await yarnCheckUpdate(fileToCheck, packageContent);
 		case PackageType.COMPOSER:
-			return await composerCheckUpdate(packageContent);
+			return await composerCheckUpdate(fileToCheck, packageContent);
 		default:
 			throw new Error("Package type not found");
 	}

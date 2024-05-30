@@ -4,9 +4,10 @@ import semverDiff from "semver/functions/diff";
 import semberCoerce from "semver/functions/coerce";
 
 import { IPackage } from "@/interfaces/package.interface";
+import { IFileToCheck } from "@/interfaces/repository.interface";
 import { ReleaseType } from "@/enums/release-type.enum";
 
-export const composerCheckUpdate = async (composerJsonContent): Promise<IPackage[]> => {
+export const composerCheckUpdate = async (fileToCheck: IFileToCheck, composerJsonContent: any): Promise<IPackage[]> => {
     const table: IPackage[] = [];
 
     const packageTypes = ["require", "require-dev"];
@@ -21,6 +22,11 @@ export const composerCheckUpdate = async (composerJsonContent): Promise<IPackage
 			}
 
 			if (packageName.startsWith("ext-")) {
+				continue;
+			}
+			
+			const ignorePackages = fileToCheck.ignorePackages || [];
+			if(ignorePackages.includes(packageName)) {
 				continue;
 			}
 

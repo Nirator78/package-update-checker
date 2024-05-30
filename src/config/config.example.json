@@ -9,7 +9,8 @@
 		"fileToCheck": [
 			{
 				"path": "./examples/package.json",
-				"type": "npm"
+				"type": "npm",
+				"ignorePackages": ["next"]
 			},
 			{
 				"path": "./examples/composer.json",

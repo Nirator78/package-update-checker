@@ -4,9 +4,10 @@ import semverDiff from "semver/functions/diff";
 import semberCoerce from "semver/functions/coerce";
 
 import { IPackage } from "@/interfaces/package.interface";
+import { IFileToCheck } from "@/interfaces/repository.interface";
 import { ReleaseType } from "@/enums/release-type.enum";
 
-export const yarnCheckUpdate = async (packageJsonContent): Promise<IPackage[]> => {
+export const yarnCheckUpdate = async (fileToCheck: IFileToCheck, packageJsonContent: any): Promise<IPackage[]> => {
     const table: IPackage[] = [];
 
     const packageTypes = ["dependencies", "devDependencies"];
@@ -16,6 +17,11 @@ export const yarnCheckUpdate = async (packageJsonContent): Promise<IPackage[]> =
 		if(!pkgs) continue;
 
 		for (let [packageName, version] of Object.entries(pkgs)) {
+			const ignorePackages = fileToCheck.ignorePackages || [];
+			if(ignorePackages.includes(packageName)) {
+				continue;
+			}
+			
 			try {
 				const response = await axios.get(`https://registry.yarnpkg.com/${packageName}`);
 

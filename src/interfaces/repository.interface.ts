@@ -1,6 +1,7 @@
 export interface IFileToCheck {
 	path: string;
 	type: string;
+	ignorePackages?: string[];
 }
   
 export interface IAlert {

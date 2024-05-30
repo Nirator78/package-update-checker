@@ -22,6 +22,7 @@ export const configFileSchema = {
           properties: {
             path: { type: "string" },
             type: { type: "string", enum: Object.values(PackageType) },
+            ignorePackages: { type: "array", items: { type: "string" } }
           },
           required: ["path", "type"]
         }
