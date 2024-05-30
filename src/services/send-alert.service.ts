@@ -3,6 +3,7 @@ import { IPackage } from "@/interfaces/package.interface";
 import { IAlert } from "@/interfaces/repository.interface";
 import { sendAlertServiceToSlack } from "@/services/send-alert/send-alert-slack.service";
 import { sendAlertServiceToDiscord } from "@/services/send-alert/send-alert-discord.service";
+import { sendAlertServiceToTeams } from "@/services/send-alert/send-alert-teams.service";
 import { sendAlertCustomService } from "@/services/send-alert/send-alert-custom.service";
 
 export const sendAlertService = async (alert: IAlert, update: IPackage[]): Promise<void> => {
@@ -14,6 +15,8 @@ export const sendAlertService = async (alert: IAlert, update: IPackage[]): Promi
 				return sendAlertServiceToSlack(alert, update);
 			case AlertSource.DISCORD:
 				return sendAlertServiceToDiscord(alert, update);
+			case AlertSource.TEAMS:
+				return sendAlertServiceToTeams(alert, update);
 			case AlertSource.CUSTOM:
 				return sendAlertCustomService(alert, update);
 			default:
