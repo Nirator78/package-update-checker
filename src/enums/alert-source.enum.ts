@@ -3,4 +3,5 @@ export enum AlertSource {
   DISCORD = "discord",
   TEAMS = "teams",
   CUSTOM = "custom",
+  SMTP = "smtp",
 };

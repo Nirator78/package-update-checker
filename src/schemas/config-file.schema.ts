@@ -35,6 +35,8 @@ export const configFileSchema = {
             type: { type: "string", enum: Object.values(AlertType) },
             source: { type: "string", enum: Object.values(AlertSource) },
             url: { type: "string" },
+            from: { type: "string" },
+            to: { type: "string" },
             title: { type: "string" },
             onlyIfUpdateNeeded: { type: "boolean" }
           },

@@ -8,6 +8,8 @@ export interface IAlert {
 	type: string;
 	source: string;
 	url: string;
+	from: string;
+	to: string;
 	title: string;
 	onlyIfUpdateNeeded: boolean;
 }

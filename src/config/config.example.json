@@ -24,6 +24,15 @@
 				"url": "",
 				"title": "Test git public repository",
 				"onlyIfUpdateNeeded": true
+			},
+			{
+				"type": "email",
+				"source": "smtp",
+				"url": "your smtp connection string",
+				"from": "",
+				"to": "",
+				"title": "Test git public repository",
+				"onlyIfUpdateNeeded": true
 			}
 		]
 	}

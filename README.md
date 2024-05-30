@@ -37,8 +37,8 @@ A little application to check if package need update or not and send alert if up
 		],
 		"alerts": [
 			{
-				"type": "webhook", // Type of alert (webhook)
-				"source": "slack", // Source of the alert (slack, discord, teams, custom)
+				"type": "webhook", // Type of alert (webhook, email)
+				"source": "slack", // Source of the alert (slack, discord, teams, custom, smtp)
 				"url": "", // URL of the webhook
 				"title": "Test git public repository", // Title of the alert
 				"onlyIfUpdateNeeded": true // Send alert only if update needed
@@ -60,6 +60,7 @@ A little application to check if package need update or not and send alert if up
 - Discord
 - Teams
 - Custom Webhooks
+- Email (SMTP)
 
 ## Todo List
 
