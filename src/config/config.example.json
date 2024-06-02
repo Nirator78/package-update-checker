@@ -15,6 +15,10 @@
 			{
 				"path": "./examples/composer.json",
 				"type": "composer"
+			},
+			{
+				"path": "./examples/requirements.txt",
+				"type": "pip"
 			}
 		],
 		"alerts": [
