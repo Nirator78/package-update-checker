@@ -1,6 +1,6 @@
 {
   "name": "package-update-checker",
-  "version": "0.1",
+  "version": "1.0.0",
   "description": "A little application to check if package need update or not and send alert if update needed",
   "main": "src/index.ts",
   "scripts": {
