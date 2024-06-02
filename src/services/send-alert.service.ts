@@ -6,6 +6,7 @@ import { sendAlertServiceToDiscord } from "@/services/send-alert/send-alert-disc
 import { sendAlertServiceToTeams } from "@/services/send-alert/send-alert-teams.service";
 import { sendAlertCustomService } from "@/services/send-alert/send-alert-custom.service";
 import { sendAlertEmailService } from "@/services/send-alert/send-alert-email.service";
+import { sendAlertPdfService } from "./send-alert/send-alert-pdf.service";
 
 export const sendAlertService = async (alert: IAlert, update: IPackage[]): Promise<void> => {
 	const { source } = alert;
@@ -22,6 +23,8 @@ export const sendAlertService = async (alert: IAlert, update: IPackage[]): Promi
 				return sendAlertCustomService(alert, update);
 			case AlertSource.SMTP:
 				return sendAlertEmailService(alert, update);
+			case AlertSource.PDF:
+				return sendAlertPdfService(alert, update);
 			default:
 				throw new Error("Alert source not found");
 		}
