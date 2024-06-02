@@ -52,7 +52,7 @@ A little application to check if package need update or not and send alert if up
 
 ### Versionning System
 - Github (Public / Private Repository)
-- Gitlab (Public)
+- Gitlab (Public Repository)
 - Tortoise SVN (Public / Private Repository)
 
 ### Alert System
