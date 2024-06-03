@@ -23,7 +23,7 @@ A little application to check if package need update or not and send alert if up
 [
 	{
 		"name": "Test git public repository", // Name of the repository
-		"type": "github", // Type of repository (github, gitlab, tortoisesvn)
+		"type": "github", // Type of repository (github, gitlab, tortoisesvn, bitbucket)
 		"url": "", // URL of the repository
 		"description": "This is a test repository", // Description of the repository
 		"private": false, // Is the repository private
@@ -54,6 +54,7 @@ A little application to check if package need update or not and send alert if up
 - Github (Public / Private Repository)
 - Gitlab (Public Repository)
 - Tortoise SVN (Public / Private Repository)
+- Bitbucket (Public Repository)
 
 ### Alert System
 - Slack
