@@ -54,7 +54,7 @@ A little application to check if package need update or not and send alert if up
 - Github (Public / Private Repository)
 - Gitlab (Public Repository)
 - Tortoise SVN (Public / Private Repository)
-- Bitbucket (Public Repository)
+- Bitbucket (Public / Private Repository)
 
 ### Alert System
 - Slack
