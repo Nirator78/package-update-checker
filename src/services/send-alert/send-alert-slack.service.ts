@@ -2,7 +2,7 @@ import axios from "axios";
 import { IAlert } from "@/interfaces/repository.interface";
 import { IPackage } from "@/interfaces/package.interface";
 
-export const sendAlertServiceToSlack = async (alert: IAlert, update: IPackage[]): Promise<void> => {
+export const sendAlertSlackService = async (alert: IAlert, update: IPackage[]): Promise<void> => {
     const result: any = [];
 
     for(const up of update){
