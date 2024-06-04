@@ -11,7 +11,9 @@ const config = {
 
 export const getPackageFromBitbucketService = async (repository: IRepository, fileToCheck: IFileToCheck): Promise<any> => {
 	if(repository.private) {
-		let rawGithub = repository.url.replace("bitbucket.org", "api.bitbucket.org/2.0/repositories") + "/src/main";
+		const url = new URL(repository.url);
+		const domain = url.hostname;
+		const rawGithub = repository.url.replace(domain, "api." + domain) + "/src/main";
         config.url = `${rawGithub}/${fileToCheck.path}`;
         config.headers.Authorization = `Bearer ${repository.auth}`;
 		const response = await axios.request(config);
