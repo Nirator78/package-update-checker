@@ -62,7 +62,8 @@ A little application to check if package need update or not and send alert if up
 - Teams
 - Custom Webhooks
 - Email (SMTP)
-- PDF (only with manual installation or docker compose)
+- PDF (only with manual installation or docker compose - only for one file to check)
+- JSON (only with manual installation or docker compose - only for one file to check)
 
 ## Todo List
 
